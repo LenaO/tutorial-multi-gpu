@@ -39,5 +39,8 @@ sanitize: jacobi
 run: jacobi
 	$(JSC_SUBMIT_CMD) -n $(NP) ./jacobi
 
+run_user_buffer: jacobi
+	$(JSC_SUBMIT_CMD) -n $(NP) ./jacobi  -user_buffer_reg
+
 profile: jacobi
 	$(JSC_SUBMIT_CMD) -n $(NP) nsys profile --trace=mpi,cuda,nvtx -o jacobi.%q{SLURM_PROCID} ./jacobi -niter 10
